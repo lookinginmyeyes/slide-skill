@@ -209,7 +209,7 @@ The first question should be short, precise, and should not include implementati
 这份 slide 你想怎么定方向？
 1. 直接生成：我根据内容自动定风格、模板和动效
 2. 先选风格：先看 2-3 个视觉方向，再生成
-3. 先选模板/案例：先生成 2-3 张单页模板预览，看效果后再生成
+3. 先选模板/案例：先生成 3 张不同风格的单页模板，看效果后再生成
 ```
 
 ## Hard Generation Gates
@@ -249,7 +249,7 @@ Before loading path resources, classify the request:
 | --- | --- |
 | Explicit direct-generation wording | Generate immediately with a selected style path |
 | Explicitly asks to choose style, or chooses entry path 2 | Offer 2-3 style options |
-| Explicitly asks to choose examples/cases/templates, or chooses entry path 3 | Generate 2-3 rendered one-slide HTML template previews, then ask the user to choose |
+| Explicitly asks to choose examples/cases/templates, or chooses entry path 3 | Generate three rendered one-slide HTML template previews in different styles, then ask the user to choose |
 | Ambiguous or topic-only request | Ask the three-path entry question first |
 
 When offering options:
@@ -286,7 +286,7 @@ Before final generation, resolve one typography preset. The behavior depends on 
 
 - Direct generation path: skip the typography question. Auto-select the best-fitting preset and continue.
 - Style selection path: first offer 2-3 style options, wait for the user to pick one, then ask typography.
-- Template/case path: first generate 2-3 rendered one-slide template/case previews, wait for the user to pick one, then ask typography.
+- Template/case path: first generate three rendered one-slide template/case previews in different styles, wait for the user to pick one, then ask typography.
 
 1. Hanbao Default: clean sans typography for product, sales, and internal decks
 2. Editorial Luxe: high-contrast serif headlines with italic emphasis for premium B2B storytelling
@@ -347,7 +347,7 @@ After the user selects a style, use the matching implementation path and read on
 
 Use when the user wants examples or does not know the desired style.
 
-Generate 2-3 concrete mini previews as actual one-slide HTML pages. Do not only describe them in chat. The user should be able to view the visual result and choose from what they see.
+Generate three concrete mini previews as actual one-slide HTML pages, each in a different candidate style. Do not only describe them in chat. The user should be able to view the visual result and choose from what they see.
 
 Each preview must include:
 
@@ -360,10 +360,10 @@ Each preview must include:
 
 Preview output rules:
 
-- Prefer one combined preview HTML file containing 2-3 single-slide preview pages with clear option labels.
+- Prefer one combined preview HTML file containing three single-slide preview pages with clear option labels.
 - Separate one-slide HTML files are acceptable when easier to inspect.
 - The preview is not the final deck. Use representative subject-aware placeholder copy, but do not invent final claims, metrics, customer names, or evidence.
-- Each preview should use a different structural template/case, not just recolored versions of the same layout.
+- Each preview should use a different structural template/case and style direction, not just recolored versions of the same layout.
 - The preview should be visually honest: if a case relies on editorial WebGL, strong charts, image-led composition, or product-demo UI framing, show that behavior in the preview page.
 - After generating the preview file, give the file path and ask the user which preview to use.
 
@@ -380,8 +380,8 @@ Case candidates may come from:
 
 For case selection:
 
-1. Infer 2-3 distinct cases that fit the user's content.
-2. Render one single-slide preview for each case.
+1. Infer three distinct candidate styles/templates that fit the user's content.
+2. Render one single-slide preview for each candidate style/template.
 3. Give the preview file path and a short visible-result description for each preview.
 4. Wait for the user to choose one preview.
 5. After selection, read only the resources needed for that chosen case.
@@ -396,7 +396,7 @@ Pick one primary implementation path after direct/style/case selection. Load onl
 | Speaker notes / presenter mode | Studio Deck presenter | `references/studio-deck/presenter-mode.md`, `assets/studio-deck/runtime.js`, relevant layouts | editorial-motion templates unless premium visual mode is selected |
 | Swiss grid / executive / data-driven | Editorial Motion Swiss | `assets/editorial-motion/template-swiss.html`, `references/editorial-motion/layouts-swiss.md`, `references/editorial-motion/themes-swiss.md`, `references/editorial-motion/swiss-layout-lock.md` | studio-deck theme catalog, frontend preview docs |
 | Editorial / magazine / launch story | Editorial Motion magazine | `assets/editorial-motion/template.html`, `references/editorial-motion/layouts.md`, `references/editorial-motion/themes.md`, `references/editorial-motion/image-prompts.md` | Swiss lock unless user chose Swiss; do not use studio-deck skeleton for this path |
-| User wants 2-3 visual examples first | case preview router | select 2-3 candidates across studio-deck / editorial-motion / frontend / Warm Studio, then read only the chosen path | all unchosen path catalogs |
+| User wants template/case previews first | case preview router | render three one-slide previews across studio-deck / editorial-motion / frontend / Warm Studio, then read only the chosen path | all unchosen path catalogs |
 | Strict viewport-fit single HTML | frontend constraints | `references/viewport-showcase/viewport-base.css`, `references/viewport-showcase/html-template.md` | full theme catalogs |
 | Dense slide / low-height browser fit | Hanbao viewport fit | `references/viewport-fit.md`, then selected path layout rules | unrelated path catalogs |
 | Data-heavy chart / KPI / dashboard slide | selected path + data visuals | `slide-data-visuals/SKILL.md`, then only the relevant data visual references | standalone dashboard apps, external chart images, unrelated visual paths |

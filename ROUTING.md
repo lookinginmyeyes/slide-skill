@@ -20,7 +20,7 @@ Stop before final HTML generation whenever any applicable item is missing:
 
 - entry path is not explicit and the user has not chosen direct/style/case
 - style path was chosen but no concrete option has been selected
-- template/case path was chosen but rendered one-slide previews have not been generated
+- template/case path was chosen but three rendered one-slide style previews have not been generated
 - template/case previews were generated but the user has not selected one
 - typography preset has not been resolved; for direct generation this means auto-selected by the agent, for style/case paths this means selected by the user
 - audience-centered brief and slide-job plan do not exist
@@ -67,7 +67,7 @@ Before reading path-specific resources:
 | Ambiguous or topic-only request | Ask direct generation vs style selection vs template/case selection | Use this routing file only; do not read path assets yet |
 | Explicit direct generation or user chooses direct generation | Generate immediately | Pick one implementation path, then read only that path |
 | Explicit style selection or user chooses style selection | Offer 2-3 style directions | Use this routing file only; do not read path assets yet |
-| Explicit template/case selection or user chooses template/case selection | Generate 2-3 concrete one-slide HTML template previews, then ask the user to choose from the rendered previews | Use routing first, then load only the minimum resources needed to render the preview candidates |
+| Explicit template/case selection or user chooses template/case selection | Generate three concrete one-slide HTML template previews, one per candidate style, then ask the user to choose from the rendered previews | Use routing first, then load only the minimum resources needed to render the preview candidates |
 
 Direct generation requires clear wording such as "directly generate", "just make it", "no need to ask", "quick draft", "直接出", "不用问", "快速生成", or "一把梭".
 
@@ -77,7 +77,7 @@ The first entry question must be user-facing, precise, and simple:
 这份 slide 你想怎么定方向？
 1. 直接生成：我根据内容自动定风格、模板和动效
 2. 先选风格：先看 2-3 个视觉方向，再生成
-3. 先选模板/案例：先生成 2-3 张单页模板预览，看效果后再生成
+3. 先选模板/案例：先生成 3 张不同风格的单页模板，看效果后再生成
 ```
 
 Then:
@@ -95,7 +95,7 @@ Then:
 | Swiss grid | Editorial Motion Swiss | `assets/editorial-motion/template-swiss.html`, `references/editorial-motion/layouts-swiss.md`, `references/editorial-motion/swiss-layout-lock.md` |
 | Editorial / magazine | Editorial Motion magazine | `assets/editorial-motion/template.html`, `references/editorial-motion/layouts.md`, `references/editorial-motion/image-prompts.md` |
 | Warm Studio / refined product demo | Warm Studio single HTML | `references/warm-studio/design-styles.md`, `references/warm-studio/workflow.md`, `assets/warm-studio/deck_index.html` |
-| 2-3 visual examples first | case preview router | choose candidates across studio-deck, editorial-motion, viewport-showcase, and Warm Studio, generate one-slide HTML previews, then load only the selected full-deck path |
+| 3 visual examples first | case preview router | choose three candidate styles across studio-deck, editorial-motion, viewport-showcase, and Warm Studio, generate one-slide HTML previews, then load only the selected full-deck path |
 | Strict viewport fitting | frontend constraints | `references/viewport-showcase/viewport-base.css`, `references/viewport-showcase/html-template.md` |
 | Dense slide / normal-browser 100% zoom fit | Hanbao viewport fit | `hanbao-html-slide/references/viewport-fit.md` |
 
@@ -141,13 +141,13 @@ Case preview is not the viewport-showcase path. It is a selector that can propos
 - a viewport-showcase style-preview case
 - a Warm Studio / Warm Studio single HTML case
 
-Case preview is a real visual generation step. It must produce 2-3 actual one-slide HTML previews that the user can open or view, not just a chat description of possible cases.
+Case preview is a real visual generation step. It must produce exactly three actual one-slide HTML previews that the user can open or view, not just a chat description of possible cases. Each preview represents a different candidate style/template direction.
 
-Each preview should be a single 16:9 slide representing the chosen template/case direction. It should show the actual visual skeleton, title treatment, content region, image/chart placeholder behavior, motion feel where practical, and density level. Use representative placeholder content based on the user's subject, but do not invent final claims or metrics.
+Each preview should be a single 16:9 slide representing one candidate style. It should show the actual visual skeleton, title treatment, content region, image/chart placeholder behavior, motion feel where practical, and density level. Use representative placeholder content based on the user's subject, but do not invent final claims or metrics.
 
 During case preview, load only the minimum resources needed to render each preview candidate. Do not bulk-read every retained file. For example, use one studio-deck single-page layout, one editorial-motion skeleton, or one Warm Studio page pattern per preview candidate.
 
-The preview deliverable should normally be one local HTML file containing 2-3 preview slides or 2-3 separate one-slide HTML files. A combined preview file is preferred because the user can compare options in one place.
+The preview deliverable should normally be one local HTML file containing three preview slides or three separate one-slide HTML files. A combined preview file is preferred because the user can compare options in one place.
 
 After the user picks one rendered preview, continue with the implementation path that best produces that viewer-facing case and do not bulk-read the others.
 
@@ -226,7 +226,7 @@ SKILL.md says the situation needs them.
 3. Create a planning pass: slide count, slide jobs, evidence/data needs, visual role, and reveal rhythm.
 4. Ask the required entry-choice question unless the user explicitly chose direct generation.
 5. If style selection is chosen, offer 2-3 user-facing options without reading path assets, then wait for the concrete choice.
-6. If template/case selection is chosen, generate 2-3 actual one-slide HTML previews, give the preview file path, and wait for the user to choose one.
+6. If template/case selection is chosen, generate three actual one-slide HTML previews in different styles, give the preview file path, and wait for the user to choose one.
 7. Resolve typography. For direct generation, auto-select the preset and continue. For style/case paths, ask typography after the concrete option is chosen and wait for the preset.
 7. Scan every slide job for chart/KPI/table/dashboard opportunities. If any exist, run `slide-data-visuals` now. Data visuals must be inline slide components and must inherit the selected background, style tokens, typography, and motion system.
 8. If image generation / host image generation is available and the user has not opted out, run `slide-visual-assets` now at max power to produce multiple real assets with distinct responsibilities, or fallback decisions only for failed/unnecessary assets.

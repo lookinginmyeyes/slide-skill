@@ -49,7 +49,7 @@ on the viewer and the artifact.
 These gates are required. A final HTML deck is not valid until every applicable gate has been completed.
 
 1. Audience brief gate: define intended viewer, viewer need, desired takeaway, evidence needs, slide jobs, data needs, image needs, motion intent, and output constraints.
-2. Direction gate: ask the three-path entry question unless the user explicitly requested direct generation. If the user chooses style selection, collect that concrete choice before continuing. If the user chooses template/case selection, generate visible one-slide template previews first and collect the user's choice from those previews.
+2. Direction gate: ask the three-path entry question unless the user explicitly requested direct generation. If the user chooses style selection, collect that concrete choice before continuing. If the user chooses template/case selection, generate three visible one-slide template previews, one per candidate style, and collect the user's choice from those previews.
 3. Typography gate: resolve a typography preset before writing final HTML. In direct generation, auto-select the preset and record why it fits. In style or template/case selection, ask the user after the concrete direction is locked.
 4. Planning gate: create a deck plan with slide count, slide jobs, content hierarchy, evidence/data requirements, visual role per slide, and click/reveal rhythm. Planning is mandatory even for direct generation.
 5. Data visual gate: scan the plan for numbers, comparisons, KPI cards, tables, charts, trends, timelines, dashboards, matrices, or structured evidence. If present, run `slide-data-visuals` before writing final HTML.
@@ -194,7 +194,7 @@ Keep orchestration thin but avoid unnecessary serial waiting:
 - The mandatory gates above override shortcuts. If Hanbao has not collected the required user choice, plan, typography resolution, data-visual decision, motion plan, and audit result, continue that gate instead of producing final HTML.
 - First ask the user how to set direction: direct generation, choose a visual style, or choose a template/case direction. Do this before reading detailed path resources.
 - If the user chooses style selection, offer 2-3 concise visual direction options next. Phrase each option by audience fit, visual tone, information density, and presentation effect.
-- If the user chooses template/case selection, generate 2-3 visible one-slide HTML template previews next. Each preview must be an actual single-slide visual sample, not a text-only description. Phrase the choice by what the viewer can see in the preview, then wait for the user to choose one.
+- If the user chooses template/case selection, generate three visible one-slide HTML template previews next. Each preview must be an actual single-slide visual sample for a distinct candidate style, not a text-only description. Phrase the choice by what the viewer can see in the preview, then wait for the user to choose one.
 - Direct generation is allowed only after the user chooses direct generation or uses explicit wording such as "directly generate", "just make it", "no need to ask", "quick draft", "直接出", "不用问", "快速生成", or "一把梭".
 - Direct generation skips the font-choice question. Auto-select one typography preset internally: Hanbao Default, Editorial Luxe, Swiss Light, or Editorial Serif.
 - Ask the user for typography only after a specific style option or a specific rendered template/case preview is chosen. `Editorial Luxe` is the premium serif option, but it is not automatic.
