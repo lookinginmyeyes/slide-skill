@@ -209,7 +209,7 @@ The first question should be short, precise, and should not include implementati
 这份 slide 你想怎么定方向？
 1. 直接生成：我根据内容自动定风格、模板和动效
 2. 先选风格：先看 2-3 个视觉方向，再生成
-3. 先选模板/案例：先看 2-3 个成品结构方向，再生成
+3. 先选模板/案例：先生成 2-3 张单页模板预览，看效果后再生成
 ```
 
 ## Hard Generation Gates
@@ -249,7 +249,7 @@ Before loading path resources, classify the request:
 | --- | --- |
 | Explicit direct-generation wording | Generate immediately with a selected style path |
 | Explicitly asks to choose style, or chooses entry path 2 | Offer 2-3 style options |
-| Explicitly asks to choose examples/cases/templates, or chooses entry path 3 | Offer 2-3 template/case options |
+| Explicitly asks to choose examples/cases/templates, or chooses entry path 3 | Generate 2-3 rendered one-slide HTML template previews, then ask the user to choose |
 | Ambiguous or topic-only request | Ask the three-path entry question first |
 
 When offering options:
@@ -270,13 +270,14 @@ Style option format:
 3. [Name]：一句话描述画面气质。适合：...
 ```
 
-Template/case option format:
+Template/case preview format:
 
 ```text
 选一个模板/案例方向：
-1. [Name]：开场页...，内容页...，动效...。适合：...
-2. [Name]：开场页...，内容页...，动效...。适合：...
-3. [Name]：开场页...，内容页...，动效...。适合：...
+我已经生成了单页模板预览：[preview-file.html]
+1. [Name]：预览第 1 页，画面结构...，适合：...
+2. [Name]：预览第 2 页，画面结构...，适合：...
+3. [Name]：预览第 3 页，画面结构...，适合：...
 ```
 
 ## Typography Resolution
@@ -285,7 +286,7 @@ Before final generation, resolve one typography preset. The behavior depends on 
 
 - Direct generation path: skip the typography question. Auto-select the best-fitting preset and continue.
 - Style selection path: first offer 2-3 style options, wait for the user to pick one, then ask typography.
-- Template/case path: first offer 2-3 template/case options, wait for the user to pick one, then ask typography.
+- Template/case path: first generate 2-3 rendered one-slide template/case previews, wait for the user to pick one, then ask typography.
 
 1. Hanbao Default: clean sans typography for product, sales, and internal decks
 2. Editorial Luxe: high-contrast serif headlines with italic emphasis for premium B2B storytelling
@@ -346,13 +347,25 @@ After the user selects a style, use the matching implementation path and read on
 
 Use when the user wants examples or does not know the desired style.
 
-Generate or describe 2-3 concrete mini previews with:
+Generate 2-3 concrete mini previews as actual one-slide HTML pages. Do not only describe them in chat. The user should be able to view the visual result and choose from what they see.
+
+Each preview must include:
 
 - title slide look
-- one content page look
+- content-region structure
+- image/chart/data placeholder treatment when relevant
 - motion feel
 - typography feel
 - best-use note
+
+Preview output rules:
+
+- Prefer one combined preview HTML file containing 2-3 single-slide preview pages with clear option labels.
+- Separate one-slide HTML files are acceptable when easier to inspect.
+- The preview is not the final deck. Use representative subject-aware placeholder copy, but do not invent final claims, metrics, customer names, or evidence.
+- Each preview should use a different structural template/case, not just recolored versions of the same layout.
+- The preview should be visually honest: if a case relies on editorial WebGL, strong charts, image-led composition, or product-demo UI framing, show that behavior in the preview page.
+- After generating the preview file, give the file path and ask the user which preview to use.
 
 After selection, lock the visual direction and generate one complete single-file HTML deck.
 
@@ -368,8 +381,10 @@ Case candidates may come from:
 For case selection:
 
 1. Infer 2-3 distinct cases that fit the user's content.
-2. For each case, describe only the visible result: page feel, structure, typography, motion, and best-use note.
-3. After selection, read only the resources needed for that chosen case.
+2. Render one single-slide preview for each case.
+3. Give the preview file path and a short visible-result description for each preview.
+4. Wait for the user to choose one preview.
+5. After selection, read only the resources needed for that chosen case.
 
 ## Style Path Routing
 
