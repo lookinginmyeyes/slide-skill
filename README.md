@@ -20,6 +20,28 @@ specialist modules.
   has not opted out.
 - Runs motion polish and visual audit as default quality gates.
 
+## Recommended Runtime
+
+For the best results, use this skill in Codex with full image generation
+available. The complete package is designed to use environment-provided image
+generation as a first-class visual layer, not as a decorative add-on.
+
+When image generation is available, the deck can plan and generate multiple
+role-specific assets, such as:
+
+- cover or chapter anchor visuals;
+- product, workflow, or use-case scenes;
+- context and evidence visuals;
+- architecture or process illustrations;
+- interface/state visuals;
+- subtle textures only when they support the slide style.
+
+The skill does not require hard-coded API keys inside the package. It should
+use the image generation capability exposed by the host environment. In Codex,
+that means the full image path can be used directly when the environment
+supports it. In environments without image generation, the skill can still
+produce single-file HTML slides, but the visual ceiling will be lower.
+
 ## Open Skills And Patterns Referenced
 
 This package borrows capability patterns from these open/local skills and
