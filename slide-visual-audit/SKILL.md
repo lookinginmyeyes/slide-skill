@@ -6,7 +6,7 @@ description: >-
   strategy, layout rhythm, copy clarity, and anti-AI-template issues. Use after
   a deck is generated or when the user asks to review, polish, improve, audit,
   fix, beautify, or make slides more professional. This skill distills the audit
-  and polish parts of impeccable for slide decks and should run by default after
+  and polish parts of visual-audit for slide decks and should run by default after
   generation.
 ---
 
@@ -55,7 +55,7 @@ Do not bulk-read every reference. Route by problem:
 | Palette / contrast | `color-and-contrast.md` |
 | Too much information / cognitive burden | `cognitive-load.md` |
 
-Keep the full upstream audit capability available, but only load the needed branch.
+Keep the full retained audit capability available, but only load the needed path.
 
 ## Output Modes
 

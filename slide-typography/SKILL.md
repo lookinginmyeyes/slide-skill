@@ -50,7 +50,7 @@ When a deck is about to be generated and the user has not selected typography, a
 4. Editorial Serif：克制衬线标题，适合品牌故事、行业观察、杂志感演示
 ```
 
-Do not describe `Editorial Luxe` using the huashu name. It is a distilled typography option, not a user-facing source label.
+Do not describe `Editorial Luxe` using the warm-studio name. It is a distilled typography option, not a user-facing source label.
 
 ## Presets
 
@@ -78,7 +78,7 @@ Use for balanced product, sales, and internal decks.
 
 ### Editorial Luxe
 
-Use for premium B2B editorial decks with high-contrast serif headlines, italic emphasis words, and polished commercial storytelling. This preset distills the reference typography feel without using the huashu name.
+Use for premium B2B editorial decks with high-contrast serif headlines, italic emphasis words, and polished commercial storytelling. This preset distills the reference typography feel without using the warm-studio name.
 
 Best for:
 

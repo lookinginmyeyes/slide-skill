@@ -1,7 +1,7 @@
 ---
 name: slide-source-grounding
 description: >-
-  Extract, ground, and summarize source material for final slide decks from
+  Extract, ground, and summarize source material for Hanbao slide decks from
   local folders, markdown/text, PDF, DOCX, XLSX/CSV, or mixed knowledge-base
   materials. Use before narrative planning when a deck should be based on
   documents, evidence, reports, tables, references, or knowledge-base content.
@@ -15,8 +15,8 @@ This skill prepares reliable source material for slide generation. It does not
 write the final deck. It produces a source-backed evidence pack for
 `slide-narrative-planner` and `hanbao-html-slide`.
 
-This module keeps fuller upstream `kb-retriever` guidance and scripts, but the
-This adapter in this file decides what evidence the slide system needs.
+This module keeps fuller retained `source-reader` guidance and scripts, but the
+Hanbao adapter in this file decides what evidence the slide system needs.
 
 ## Output Contract
 
@@ -82,8 +82,8 @@ Use `rg` for text search where possible.
 - For tables, extract structure when possible instead of copying visual text.
 
 For detailed PDF handling, read
-`references/kb-retriever/references/pdf_reading.md`. The retained helper script
-`scripts/kb-retriever/convert_pdf_to_images.py` is available when page images
+`references/source-reader/references/pdf_reading.md`. The retained helper script
+`scripts/source-reader/convert_pdf_to_images.py` is available when page images
 are needed for visual inspection.
 
 ### DOCX
@@ -99,8 +99,8 @@ are needed for visual inspection.
 
 For detailed spreadsheet handling, read:
 
-- `references/kb-retriever/references/excel_reading.md`
-- `references/kb-retriever/references/excel_analysis.md`
+- `references/source-reader/references/excel_reading.md`
+- `references/source-reader/references/excel_analysis.md`
 
 ## Evidence Quality
 
@@ -144,11 +144,11 @@ Do not force all evidence into the main deck. Mark appendix candidates.
 
 | Need | Read |
 | --- | --- |
-| Full upstream retrieval workflow | `references/kb-retriever/original-SKILL.md` |
-| PDF extraction | `references/kb-retriever/references/pdf_reading.md` |
-| Excel reading | `references/kb-retriever/references/excel_reading.md` |
-| Excel analysis | `references/kb-retriever/references/excel_analysis.md` |
+| Full retained retrieval workflow | `references/source-reader/full-reference.md` |
+| PDF extraction | `references/source-reader/references/pdf_reading.md` |
+| Excel reading | `references/source-reader/references/excel_reading.md` |
+| Excel analysis | `references/source-reader/references/excel_analysis.md` |
 | Mixed source extraction pattern | `references/extraction-patterns.md` |
 
-Do not read every source file or every upstream reference by default. Start from
+Do not read every source file or every retained reference by default. Start from
 the user's source scope and retrieve progressively.

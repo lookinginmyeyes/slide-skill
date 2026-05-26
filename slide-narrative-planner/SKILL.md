@@ -2,25 +2,25 @@
 name: slide-narrative-planner
 description: >-
   Plan the story, argument, outline, slide jobs, evidence needs, and speaking
-  rhythm for single-file HTML slide decks. Use before visual generation
+  rhythm for Hanbao single-file HTML slide decks. Use before visual generation
   when the user provides raw notes, documents, a topic, an article, a pitch,
   academic/research material, or a script-like source and the deck needs a
   clearer narrative structure. This skill distills durable planning methods
-  from ppt-creator, academic-pptx, and web-video-presentation without owning
+  from deck-planner, research-deck, and click-story without owning
   rendering or style.
 ---
 
 # Slide Narrative Planner
 
 This skill turns raw material into a deck plan. It does not render HTML and does
-not choose the final visual branch. Its output is a concise, usable plan for the
+not choose the final visual path. Its output is a concise, usable plan for the
 main slide generator.
 
 Use it when the deck needs story structure, evidence hierarchy, slide-by-slide
 jobs, speaker rhythm, or when the input is longer than a simple prompt.
 
-This module keeps fuller upstream material, but the Package rules in this file are
-the adapter. Load upstream references only when the deck needs that depth.
+This module keeps fuller retained material, but the Hanbao rules in this file are
+the adapter. Load retained references only when the deck needs that depth.
 
 ## Output Contract
 
@@ -87,16 +87,16 @@ Use for business, product, sales, executive, and pitch decks.
 For detailed intake, workflow, template, visualization, and scoring guidance,
 read selectively from:
 
-- `references/ppt-creator/original-SKILL.md`
-- `references/ppt-creator/references/INTAKE.md`
-- `references/ppt-creator/references/WORKFLOW.md`
-- `references/ppt-creator/references/TEMPLATES.md`
-- `references/ppt-creator/references/VIS-GUIDE.md`
-- `references/ppt-creator/references/RUBRIC.md`
-- `references/ppt-creator/references/CHECKLIST.md`
+- `references/deck-planner/full-reference.md`
+- `references/deck-planner/references/INTAKE.md`
+- `references/deck-planner/references/WORKFLOW.md`
+- `references/deck-planner/references/TEMPLATES.md`
+- `references/deck-planner/references/VIS-GUIDE.md`
+- `references/deck-planner/references/RUBRIC.md`
+- `references/deck-planner/references/CHECKLIST.md`
 
-`scripts/ppt-creator/chartkit.py` is retained for chart rendering guidance when
-the deck has real tabular data, but the default output remains single-file
+`scripts/deck-planner/chartkit.py` is retained for chart rendering guidance when
+the deck has real tabular data, but the default Hanbao output remains single-file
 HTML.
 
 1. Core claim.
@@ -120,9 +120,9 @@ Use for papers, thesis, seminar, grant, and evidence-evaluated talks.
 
 For full academic content rules, read selectively from:
 
-- `references/academic-pptx/original-SKILL.md`
-- `references/academic-pptx/content_guidelines.md`
-- `references/academic-pptx/slide_patterns.md`
+- `references/research-deck/full-reference.md`
+- `references/research-deck/content_guidelines.md`
+- `references/research-deck/slide_patterns.md`
 
 - Argument clarity outranks decoration.
 - Every borrowed figure, quote, or data point needs a citation/source note.
@@ -136,14 +136,14 @@ Use when the deck is meant to feel like a recorded explainer or dynamic talk.
 
 For full click-driven/video-like planning guidance, read selectively from:
 
-- `references/web-video-presentation/original-SKILL.md`
-- `references/web-video-presentation/references/SCRIPT-STYLE.md`
-- `references/web-video-presentation/references/OUTLINE-FORMAT.md`
-- `references/web-video-presentation/references/CHAPTER-CRAFT.md`
+- `references/click-story/full-reference.md`
+- `references/click-story/references/SCRIPT-STYLE.md`
+- `references/click-story/references/OUTLINE-FORMAT.md`
+- `references/click-story/references/CHAPTER-CRAFT.md`
 
 The original web-video Vite templates are retained under
-`assets/web-video-presentation/templates/` for reference only. Do not output a
-Vite/React project; adapt the cadence and chapter craft into a
+`assets/click-story/templates/` for reference only. Do not output a
+Vite/React project from Hanbao; adapt the cadence and chapter craft into a
 single-file HTML deck.
 
 - Convert paragraphs into spoken beats.
@@ -198,14 +198,14 @@ Before handing the plan to the generator:
 
 | Need | Read |
 | --- | --- |
-| Business/pitch/report structure | `references/ppt-creator/references/WORKFLOW.md` |
-| Minimal intake questions | `references/ppt-creator/references/INTAKE.md` |
-| Layout/slide type ideas | `references/ppt-creator/references/TEMPLATES.md` |
-| Chart/data visualization decisions | `references/ppt-creator/references/VIS-GUIDE.md` |
-| Quality scoring | `references/ppt-creator/references/RUBRIC.md` |
-| Academic argument rules | `references/academic-pptx/content_guidelines.md` |
-| Academic slide patterns | `references/academic-pptx/slide_patterns.md` |
-| Script/click-beat transformation | `references/web-video-presentation/references/SCRIPT-STYLE.md` and `OUTLINE-FORMAT.md` |
-| Dynamic chapter craft | `references/web-video-presentation/references/CHAPTER-CRAFT.md` |
+| Business/pitch/report structure | `references/deck-planner/references/WORKFLOW.md` |
+| Minimal intake questions | `references/deck-planner/references/INTAKE.md` |
+| Layout/slide type ideas | `references/deck-planner/references/TEMPLATES.md` |
+| Chart/data visualization decisions | `references/deck-planner/references/VIS-GUIDE.md` |
+| Quality scoring | `references/deck-planner/references/RUBRIC.md` |
+| Academic argument rules | `references/research-deck/content_guidelines.md` |
+| Academic slide patterns | `references/research-deck/slide_patterns.md` |
+| Script/click-beat transformation | `references/click-story/references/SCRIPT-STYLE.md` and `OUTLINE-FORMAT.md` |
+| Dynamic chapter craft | `references/click-story/references/CHAPTER-CRAFT.md` |
 
-Do not read all upstream references for a simple deck.
+Do not read all retained references for a simple deck.

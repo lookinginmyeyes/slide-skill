@@ -8,23 +8,23 @@ description: >-
   during generation and again after visual audit when the user asks to optimize
   animation, interaction, micro-interactions, polish, motion, transitions, page
   switching, layout, or overall feel. This skill preserves the full
-  emil-design-eng design engineering framework and should run at full power.
+  motion-craft design engineering framework and should run at full power.
 ---
 
 # Slide Motion Polish
 
 Full-power motion, interaction, and visual polish module for HTML slide decks.
 
-This skill should run twice when possible:
+This skill runs at full power by default. It should run twice when possible:
 
 1. During generation, before HTML is written, to plan the deck's transition system, entry choreography, interaction feel, and visual rhythm.
 2. After visual audit, to tune timing, easing, layout harmony, responsiveness, and reduced-motion behavior.
 
-Do not use motion to hide weak hierarchy. If the layout is weak, improve the layout and then animate the improved structure.
+Do not use motion to hide weak hierarchy. If the layout is weak, improve the layout and then animate the improved structure. Do not silently downgrade to static/fade-only output unless the user explicitly asks for low motion, the deck is purely archival, or the environment cannot support safe verification.
 
 Bundled references:
 
-- `references/emil-design-eng/original-SKILL.md`
+- `references/motion-craft/full-reference.md`
 - `references/motion-design.md`
 - `references/interaction-design.md`
 - `references/animate.md`
@@ -33,7 +33,7 @@ Bundled references:
 
 Load these only when the motion or interaction problem needs more detail than the core checklist below.
 
-The full original `emil-design-eng` skill is retained in `references/emil-design-eng/original-SKILL.md`. Use it as the authoritative reference for full-power behavior, especially when shaping page transitions, dynamic effects, component feel, and visual polish.
+The full original `motion-craft` skill is retained in `references/motion-craft/full-reference.md`. Use it as the authoritative reference for full-power behavior, especially when shaping page transitions, dynamic effects, component feel, and visual polish.
 
 Do not bulk-read every motion reference. Route by problem:
 
@@ -45,7 +45,7 @@ Do not bulk-read every motion reference. Route by problem:
 | Delightful but still useful details | `delight.md` |
 | Performance or sluggish interaction | `optimize.md` |
 
-Keep the full emil-style design engineering framework intact. The routing only controls context loading, not capability reduction.
+Keep the full motion-craft design engineering framework intact. The routing only controls context loading, not capability reduction.
 
 ## Core Principle
 

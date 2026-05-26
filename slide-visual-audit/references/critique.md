@@ -4,7 +4,7 @@
 
 Launch two independent assessments. **Neither may see the other's output.** This isolation is what makes the combined score honest. Running both in one head silently anchors them to each other; do not shortcut it for cost, speed, or context-size reasons.
 
-Delegate each assessment to a separate sub-agent (Claude Code's `Agent` tool, Codex's subagent spawning, etc.). Each returns structured findings as text. Do NOT output findings to the user yet.
+Delegate each assessment to a separate sub-agent (agent runtime's `Agent` tool, Codex's subagent spawning, etc.). Each returns structured findings as text. Do NOT output findings to the user yet.
 
 Fall back to sequential in-head work only if the environment genuinely cannot spawn sub-agents.
 
@@ -18,7 +18,7 @@ document.title = '[LLM] ' + document.title;
 ```
 Think like a design director. Evaluate:
 
-**AI Slop Detection (CRITICAL)**: Does this look like every other AI-generated interface? Review against ALL **DON'T** guidelines from the parent impeccable skill (already loaded in this context). Check for AI color palette, gradient text, dark glows, glassmorphism, hero metric layouts, identical card grids, generic fonts, and all other tells. **The test**: If someone said "AI made this," would you believe them immediately?
+**AI Slop Detection (CRITICAL)**: Does this look like every other AI-generated interface? Review against ALL **DON'T** guidelines from the parent visual-audit skill (already loaded in this context). Check for AI color palette, gradient text, dark glows, glassmorphism, hero metric layouts, identical card grids, generic fonts, and all other tells. **The test**: If someone said "AI made this," would you believe them immediately?
 
 **Holistic Design Review**: visual hierarchy (eye flow, primary action clarity), information architecture (structure, grouping, cognitive load), emotional resonance (does it match brand and audience?), discoverability (are interactive elements obvious?), composition (balance, whitespace, rhythm), typography (hierarchy, readability, font choices), color (purposeful use, cohesion, accessibility), states & edge cases (empty, loading, error, success), microcopy (clarity, tone, helpfulness).
 
@@ -43,7 +43,7 @@ Run the bundled deterministic detector, which flags 27 specific patterns (AI slo
 
 **CLI scan**:
 ```bash
-npx impeccable --json [--fast] [target]
+npx visual-audit --json [--fast] [target]
 ```
 
 - Pass HTML/JSX/TSX/Vue/Svelte files or directories as `[target]` (anything with markup). Do not pass CSS-only files.
@@ -58,7 +58,7 @@ The overlay is a **visual aid for the user**. It highlights issues directly in t
 
 1. **Start the live detection server**:
    ```bash
-   npx impeccable live &
+   npx visual-audit live &
    ```
    Note the port printed to stdout (auto-assigned). Use `--port=PORT` to fix it.
 2. **Create a new tab** and navigate to the page (use dev server URL for local files, or direct URL). Do not reuse existing tabs.
@@ -72,10 +72,10 @@ The overlay is a **visual aid for the user**. It highlights issues directly in t
    const s = document.createElement('script'); s.src = 'http://localhost:PORT/detect.js'; document.head.appendChild(s);
    ```
 6. Wait 2-3 seconds for the detector to render overlays
-7. **Read results from console** using `read_console_messages` with pattern `impeccable`. The detector logs all findings with the `[impeccable]` prefix. Do NOT scroll through the page to take screenshots of the overlays.
+7. **Read results from console** using `read_console_messages` with pattern `visual-audit`. The detector logs all findings with the `[visual-audit]` prefix. Do NOT scroll through the page to take screenshots of the overlays.
 8. **Cleanup**: Stop the live server when done:
    ```bash
-   npx impeccable live stop
+   npx visual-audit live stop
    ```
 
 For multi-view targets, inject on 3-5 representative pages. If injection fails, continue with CLI results only.
@@ -137,7 +137,7 @@ For each issue, tag with **P0-P3 severity** (consult [heuristics-scoring](heuris
 #### Persona Red Flags
 > *Consult [personas](personas.md)*
 
-Auto-select 2-3 personas most relevant to this interface type (use the selection table in the reference). If `{{config_file}}` contains a `## Design Context` section from `impeccable teach`, also generate 1-2 project-specific personas from the audience/brand info.
+Auto-select 2-3 personas most relevant to this interface type (use the selection table in the reference). If `{{config_file}}` contains a `## Design Context` section from `visual-audit teach`, also generate 1-2 project-specific personas from the audience/brand info.
 
 For each selected persona, walk through the primary user action and list specific red flags found:
 
@@ -204,10 +204,10 @@ List recommended commands in priority order, based on the user's answers:
 - Skip commands that would address zero issues
 - If the user chose a limited scope, only include items within that scope
 - If the user marked areas as off-limits, exclude commands that would touch those areas
-- End with `{{command_prefix}}impeccable polish` as the final step if any fixes were recommended
+- End with `{{command_prefix}}visual-audit polish` as the final step if any fixes were recommended
 
 After presenting the summary, tell the user:
 
 > You can ask me to run these one at a time, all at once, or in any order you prefer.
 >
-> Re-run `{{command_prefix}}impeccable critique` after fixes to see your score improve.
+> Re-run `{{command_prefix}}visual-audit critique` after fixes to see your score improve.
